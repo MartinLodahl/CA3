@@ -9,21 +9,25 @@ class Houses extends Component {
     }
 
     render() {
-        console.log(this.state.houses[0].description);
         return (
             <div>
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>House</th>
-                            <th>Description</th>
-                            <th>Rating</th>
-                        </tr>
-                    </thead>
+                <div class="col-sm-6">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>House</th>
+                                <th>Description</th>
+                                <th>Rating</th>
+                            </tr>
+                        </thead>
 
-                    {printHouse(this.state.houses)}
+                        {printHouse(this.state.houses)}
 
-                </table>
+                    </table>
+                </div>
+                <div class="col-sm-6">
+                    <h1>More information here</h1>
+                </div>
             </div>
         )
     }
