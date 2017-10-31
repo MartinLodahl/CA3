@@ -42,7 +42,7 @@ class TopMenu extends Component {
                   <li><Link to="/logout"><span className="glyphicon glyphicon-log-out"></span> Logout</Link></li>
                 ) :
                 (
-                  [
+                  [ 
                     <li><Link to="/login"><span className="glyphicon glyphicon-log-in"></span> Login</Link></li>,
                     <li><Link to="/register"><span className="glyphicon glyphicon-plus"></span> Register</Link></li>
                   ]

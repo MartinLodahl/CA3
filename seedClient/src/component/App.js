@@ -33,3 +33,5 @@ function App() {
   )
 }
 export default App;
+
+{/*"serverURL": "http://www.alfen.me:8080/Seed/",*/}

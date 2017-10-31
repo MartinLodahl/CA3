@@ -1,4 +1,3 @@
-
 const data = [
     {
         "id": 1,
@@ -34,3 +33,11 @@ const data = [
         }
     },
 ];
+
+class housesMock {
+    constructor() {
+        this.data = data;
+    }
+}
+
+export default new housesMock();
