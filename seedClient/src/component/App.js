@@ -1,14 +1,13 @@
 import React from "react"
-import {Route, Switch } from "react-router-dom"
-import Login from "./Login";
-import Logout from "./Logout";
-import About from "./About";
-import UserPage from "./UserPage";
-import RandomPage from "./RandomPage";
-import AdminPage from "./AdminPage";
-import AllUsersPage from "./AllUsersPage";
-import TopMenu from "./TopMenu";
-import Rental from "./Rental";
+import { Route, Switch } from "react-router-dom"
+import Login from "./pages/basic/Login";
+import Logout from "./pages/basic/Logout";
+import About from "./pages/basic/About";
+import UserPage from "./pages/user/UserPage";
+import AdminPage from "./pages/admin/AdminPage";
+import AllUsersPage from "./pages/user/AllUsersPage";
+import TopMenu from "./pages/basic/TopMenu";
+import Rental from "./pages/basic/Rental";
 
 function App() {
   return (
@@ -21,7 +20,6 @@ function App() {
         <Route path="/about" component={About} />
         <Route path="/user" component={UserPage} />
         <Route path="/users" component={AllUsersPage} />
-        <Route path="/random" component={RandomPage} />
         <Route path="/admin" component={AdminPage} />
       </Switch>
     </div>

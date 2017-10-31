@@ -1,5 +1,5 @@
 import fetchHelper, {errorChecker} from "./fetchHelpers"
-const URL = require("../../package.json").serverURL;
+const URL = require("../../../package.json").serverURL;
 
 
 class AdminStore {

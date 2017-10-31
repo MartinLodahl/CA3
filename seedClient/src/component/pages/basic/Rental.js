@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Houses from "./showcase/Houses";
+import Houses from "../showcase/Houses";
 
 export default class Rental extends Component {
     render() {

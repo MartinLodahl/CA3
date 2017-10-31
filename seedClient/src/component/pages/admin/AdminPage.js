@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import adminData from "../facades/adminFacade";
+import adminData from "../../facades/adminFacade";
 
-class AllUsersPage extends Component {
+class AdminPage extends Component {
 
   constructor() {
     super();
@@ -18,7 +18,7 @@ class AllUsersPage extends Component {
         return this.setState({ err: e.err })
       }
       this.setState({ err: "", data });
-    }, "api/listusers");
+    }, "api/demoadmin");
   }
 
   render() {
@@ -39,4 +39,4 @@ class AllUsersPage extends Component {
   }
 }
 
-export default AllUsersPage;
+export default AdminPage;
