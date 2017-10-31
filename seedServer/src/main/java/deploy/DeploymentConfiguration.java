@@ -49,7 +49,7 @@ public class DeploymentConfiguration implements ServletContextListener {
     ServletContext context = sce.getServletContext();
  
     boolean makeTestUser = context.getInitParameter("makeTestUser").toLowerCase().equals("true");
-    if (makeTestUser) {
+    if (true) {
       EntityManager em = Persistence.createEntityManagerFactory("pu_development").createEntityManager();
       try {
         System.out.println("Creating TEST Users");
@@ -89,4 +89,5 @@ public class DeploymentConfiguration implements ServletContextListener {
   public void contextDestroyed(ServletContextEvent sce) {
 
   }
+  
 }

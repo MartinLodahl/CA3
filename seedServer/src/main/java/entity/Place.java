@@ -30,8 +30,6 @@ public class Place implements Serializable {
     @OneToOne
     private Gpslocation gps;
     
-    @Column(length = 255,name = "_ADDRESS_ID",nullable = false)
-    @OneToOne(mappedBy = "place")
     private Address address;
     
     
