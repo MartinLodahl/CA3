@@ -1,33 +1,25 @@
 import React, { Component } from "react";
-import housesMock from "../../mock/housesMock";
-
+import { Link } from "react-router-dom";
 class Houses extends Component {
 
-    constructor() {
+    constructor(props) {
         super();
-        this.state = { houses: housesMock.data }
+        this.state = { houses: props.houses }
     }
 
     render() {
         return (
             <div>
-                <div class="col-sm-6">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>House</th>
-                                <th>Description</th>
-                                <th>Rating</th>
-                            </tr>
-                        </thead>
-
-                        {printHouse(this.state.houses)}
-
-                    </table>
-                </div>
-                <div class="col-sm-6">
-                    <h1>More information here</h1>
-                </div>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>House</th>
+                            <th>Description</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+                    {printHouse(this.state.houses)}
+                </table>
             </div>
         )
     }
@@ -40,7 +32,7 @@ const printHouse = (houses) => {
         let b = <tr>
             <td>house</td>
             <td>{e.description}</td>
-            <td>{e.rating.stars}</td>
+            <td><Link to={`/rental/${e.id}`}>{e.id}</Link></td>    
         </tr>
         rows.push(b);
     }, this);
