@@ -5,7 +5,7 @@ export default class Rental extends Component {
     render() {
         return (
             <div>
-                <h1>Test1</h1>
+                <h1>House page</h1>
                 <Houses/>
             </div>
         )
