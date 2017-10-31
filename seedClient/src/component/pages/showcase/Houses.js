@@ -10,7 +10,7 @@ class Houses extends Component {
     render() {
         return (
             <div>
-                <table class="table table-hover">
+                <table className="table table-hover">
                     <thead>
                         <tr>
                             <th>House</th>
@@ -29,15 +29,15 @@ const printHouse = (houses) => {
     const houseData = houses;
     let rows = [];
     houseData.forEach(function (e) {
-        let b = <tr>
-            <td>house</td>
-            <td>{e.description}</td>
-            <td><Link to={`/rental/${e.id}`}>{e.id}</Link></td>    
-        </tr>
-        rows.push(b);
+        rows.push(
+            <tr key={e.id}>
+                <td>house</td>
+                <td>{e.description}</td>
+                <td><Link to={`/rental/${e.id}`}>{e.id}</Link></td>
+            </tr>
+        );
     }, this);
-    return <tbody> {rows} </tbody>
+    return <tbody>{rows}</tbody>
 }
-
 
 export default Houses;

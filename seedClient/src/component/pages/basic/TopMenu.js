@@ -18,9 +18,7 @@ class TopMenu extends Component {
   }
 
   render() {
-
     const logInStatus = this.state.loggedIn ? "Logged in as: " + this.state.userName : "";
-    //console.log("RENDERING - REMOVE ME",JSON.stringify(this.state));
     return (
       <div>
         <nav className="navbar navbar-default" >
@@ -43,15 +41,14 @@ class TopMenu extends Component {
                 ) :
                 (
                   [ 
-                    <li><Link to="/login"><span className="glyphicon glyphicon-log-in"></span> Login</Link></li>,
-                    <li><Link to="/register"><span className="glyphicon glyphicon-plus"></span> Register</Link></li>
+                    <li key='1'><Link to="/login"><span className="glyphicon glyphicon-log-in"></span> Login</Link></li>,
+                    <li key='2'><Link to="/register"><span className="glyphicon glyphicon-plus"></span> Register</Link></li>
                   ]
                 )
               }
             </ul>
           </div>
         </nav>
-
       </div>
     )
   }
