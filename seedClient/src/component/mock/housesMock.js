@@ -1,4 +1,3 @@
-
 const data = [
     {
         "id": 1,
@@ -34,3 +33,14 @@ const data = [
         }
     },
 ];
+
+class housesMock {
+    constructor() {
+        this.observers = [];
+    }
+    addObserver = (observer) => { this.observers.push(observer); this.loadData(); };
+    loadData = () => {
+        this.observers.forEach(obs => obs.notify(data));
+    };
+}
+export default new housesMock();
