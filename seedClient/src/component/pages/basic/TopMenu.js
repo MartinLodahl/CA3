@@ -6,7 +6,7 @@ class TopMenu extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { loggedIn: auth.loggedIn, userName: auth.userName, isUser: false, isAdmin: true }
+    this.state = { loggedIn: auth.loggedIn, userName: auth.userName, isUser: false, isAdmin: false }
   }
 
   loginStatus = (status, userName, isUser, isAdmin) => {
@@ -37,16 +37,17 @@ class TopMenu extends Component {
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li className="navbar-text" style={{ color: "steelBlue" }}>{logInStatus}</li>
-              <li>
-                {this.state.loggedIn ?
-                  (
-                    <Link to="/logout"><span className="glyphicon glyphicon-log-in"></span> Logout</Link>
-                  ) :
-                  (
-                    <Link to="/login">
-                      <span className="glyphicon glyphicon-log-out"></span> Login </Link>
-                  )}
-              </li>
+              {this.state.loggedIn ?
+                (
+                  <li><Link to="/logout"><span className="glyphicon glyphicon-log-out"></span> Logout</Link></li>
+                ) :
+                (
+                  [
+                    <li><Link to="/login"><span className="glyphicon glyphicon-log-in"></span> Login</Link></li>,
+                    <li><Link to="/register"><span className="glyphicon glyphicon-plus"></span> Register</Link></li>
+                  ]
+                )
+              }
             </ul>
           </div>
         </nav>

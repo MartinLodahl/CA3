@@ -8,6 +8,7 @@ import AdminPage from "./pages/admin/AdminPage";
 import AllUsersPage from "./pages/admin/AllUsersPage";
 import TopMenu from "./pages/basic/TopMenu";
 import Rental from "./pages/basic/Rental";
+import Register from "./pages/basic/Register";
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
         <Route path="/admin" component={AdminPage} />
 
         <Route path="/about" component={About} />
-
+        <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/logout" component={Logout} />
       </Switch>
