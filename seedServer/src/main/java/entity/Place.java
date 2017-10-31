@@ -8,6 +8,7 @@ package entity;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,13 +28,14 @@ public class Place implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @OneToOne
+    @OneToOne(cascade=CascadeType.PERSIST)
     private Gpslocation gps;
     
+    @OneToOne(mappedBy = "place",cascade=CascadeType.PERSIST)
     private Address address;
     
     
-    @OneToMany(mappedBy = "place")
+    @OneToMany(mappedBy = "place",cascade=CascadeType.PERSIST)
     private List<Image> images;
 
     public Place() {
