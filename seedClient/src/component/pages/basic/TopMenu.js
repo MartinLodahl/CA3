@@ -29,11 +29,11 @@ class TopMenu extends Component {
               <a className="navbar-brand" href="/" style={{ pointerEvents: "none" }}>Semester Seed</a>
             </div>
             <ul className="nav navbar-nav">
-              <li><Link to="/about">About</Link></li>
               <li><Link to="/rental">Rental of houses</Link></li>
               {this.state.loggedIn && this.state.isUser && (<li><Link to="/user">Page for Users </Link></li>)}
               {this.state.loggedIn && this.state.isAdmin && (<li><Link to="/admin">Page for Admins</Link></li>)}
               {this.state.loggedIn && this.state.isAdmin && (<li><Link to="/users">View of all users</Link></li>)}
+              <li><Link to="/about">About</Link></li>
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li className="navbar-text" style={{ color: "steelBlue" }}>{logInStatus}</li>
