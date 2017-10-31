@@ -15,12 +15,18 @@ function App() {
       <TopMenu />
       <Switch>
         <Route path="/rental" component={Rental} />
-        <Route path="/login" component={Login} />
-        <Route path="/logout" component={Logout} />
-        <Route path="/about" component={About} />
+
+        {/* User pages */}
         <Route path="/user" component={UserPage} />
+
+        {/* admin pages */}
         <Route path="/users" component={AllUsersPage} />
         <Route path="/admin" component={AdminPage} />
+
+        <Route path="/about" component={About} />
+
+        <Route path="/login" component={Login} />
+        <Route path="/logout" component={Logout} />
       </Switch>
     </div>
   )
