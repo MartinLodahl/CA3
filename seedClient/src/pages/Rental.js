@@ -1,11 +1,13 @@
 import React, { Component } from "react";
+import Houses from "./showcase/Houses";
 
-export default class About extends Component {
-  render() {
-    return (
-      <div>
-        <input type="text"/>
-      </div>
-    )
-  }
+export default class Rental extends Component {
+    render() {
+        return (
+            <div>
+                <h1>Test1</h1>
+                <Houses/>
+            </div>
+        )
+    }
 }

@@ -4,17 +4,17 @@ import auth from '../authorization/auth'
 
 class TopMenu extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state = {loggedIn: auth.loggedIn, userName:auth.userName,isUser:false,isAdmin:true}
+    this.state = { loggedIn: auth.loggedIn, userName: auth.userName, isUser: false, isAdmin: true }
   }
 
-  loginStatus = (status,userName,isUser,isAdmin) =>{
-    this.setState({loggedIn: status, userName,isUser,isAdmin});
+  loginStatus = (status, userName, isUser, isAdmin) => {
+    this.setState({ loggedIn: status, userName, isUser, isAdmin });
   }
 
-  componentDidMount(){
-     auth.setLoginObserver(this.loginStatus);
+  componentDidMount() {
+    auth.setLoginObserver(this.loginStatus);
   }
 
   render() {
@@ -26,7 +26,7 @@ class TopMenu extends Component {
         <nav className="navbar navbar-default" >
           <div className="container-fluid">
             <div className="navbar-header">
-              <a className="navbar-brand" href="/" style={{pointerEvents: "none"}}>Semester Seed</a>
+              <a className="navbar-brand" href="/" style={{ pointerEvents: "none" }}>Semester Seed</a>
             </div>
             <ul className="nav navbar-nav">
               <li><Link to="/about">About</Link></li>
@@ -51,11 +51,11 @@ class TopMenu extends Component {
             </ul>
           </div>
         </nav>
-        
+
       </div>
     )
   }
 }
 
 
-  export default TopMenu;
+export default TopMenu;
