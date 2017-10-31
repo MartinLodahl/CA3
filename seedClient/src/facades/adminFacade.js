@@ -8,33 +8,12 @@ class AdminStore {
     this._errorMessage = "";
   }
 
-  getData = (cb) => {
+  getData = (cb , path) => {
     this._errorMessage = "";
     this._messageFromServer = "";
     let resFromFirstPromise=null;  //Pass on response the "second" promise so we can read errors from server
     const options = fetchHelper.makeOptions("GET", true);
-    fetch(URL + "api/demoadmin", options)
-      .then((res) => {
-        resFromFirstPromise = res;
-        return res.json();
-      }).then((data) => {
-        errorChecker(resFromFirstPromise,data);
-        if (cb) {
-          cb(null, data.message)
-        }
-      }).catch(err => {
-        if (cb) {
-          cb({ err: fetchHelper.addJustErrorMessage(err) })
-        }
-      })
-  }
-
-  getAllUsers = (cb) => {
-    this._errorMessage = "";
-    this._messageFromServer = "";
-    let resFromFirstPromise=null;  //Pass on response the "second" promise so we can read errors from server
-    const options = fetchHelper.makeOptions("GET", true);
-    fetch(URL + "api/demoadmin/users", options)
+    fetch(URL + path, options)
       .then((res) => {
         resFromFirstPromise = res;
         return res.json();
@@ -53,6 +32,4 @@ class AdminStore {
 
 let adminStore = new AdminStore();
 
-//Only for debugging
-//window.userStore = userStore;
 export default adminStore;

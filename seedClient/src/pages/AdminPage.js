@@ -18,7 +18,7 @@ class AdminPage extends Component {
         return this.setState({ err: e.err })
       }
       this.setState({ err: "", data });
-    });
+    }, "api/demoadmin");
   }
 
   render() {

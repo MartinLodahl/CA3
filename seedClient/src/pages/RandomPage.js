@@ -13,12 +13,12 @@ class RandomPage extends Component {
       This will fetch data each time you navigate to this route
       If only required once, add "logic" to determine when data should be "refetched"
       */
-      userData.getRandom((e,data)=>{
+      userData.getData((e,data)=>{
         if(e){
           return this.setState({err:e.err})
         }
         this.setState({err:"",data});
-      });
+      }, "api/randomnumber");
     }
     render() {
       return (
