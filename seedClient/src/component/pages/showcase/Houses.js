@@ -9,46 +9,42 @@ class Houses extends Component {
     }
 
     render() {
-        console.log(this.state.houses[0].description);
         return (
             <div>
-                <table>
-                    <tr>
-                        <th>Firstname</th>
-                        <th>Lastname</th>
-                        <th>Age</th>
-                    </tr>
-                    <tr>
-                        <td>Jill</td>
-                        <td>Smith</td>
-                        <td>50</td>
-                    </tr>
-                    <tr>
-                        <td>Eve</td>
-                        <td>Jackson</td>
-                        <td>94</td>
-                    </tr>
-                </table>
-                {/* <table>
-                    <tr>
-                        <th>House</th>
-                        <th>Description</th>
-                        <th>Address</th>
-                    </tr>
-                    <tr>
-                        <td>House</td>
-                        <td>{this.state.houses[0].description}</td>
-                        <td>{this.state.houses[0].address}</td>
-                    </tr>
-                    <tr>
-                        <td>House</td>
-                        <td>{this.state.houses[1].description}</td>
-                        <td>{this.state.houses[1].address}</td>
-                    </tr>
-                </table> */}
+                <div class="col-sm-6">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>House</th>
+                                <th>Description</th>
+                                <th>Rating</th>
+                            </tr>
+                        </thead>
+
+                        {printHouse(this.state.houses)}
+
+                    </table>
+                </div>
+                <div class="col-sm-6">
+
+                </div>
             </div>
         )
     }
+}
+
+const printHouse = (houses) => {
+    const houseData = houses;
+    let rows = [];
+    houseData.forEach(function (e) {
+        let b = <tr>
+            <td>house</td>
+            <td>{e.description}</td>
+            <td>{e.rating.stars}</td>
+        </tr>
+        rows.push(b);
+    }, this);
+    return <tbody> {rows} </tbody>
 }
 
 export default Houses;
