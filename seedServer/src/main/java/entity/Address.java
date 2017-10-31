@@ -28,11 +28,9 @@ public class Address implements Serializable {
     
     @Column(length = 255,name = "_STREET",nullable = false)
     private String street;
-    @Column(length = 255,name = "_ZIP_ID",nullable = false)
     @OneToOne
     private Zip zip;
     @OneToOne(mappedBy = "address")
-    @Column(length = 255,name = "_PLACE_ID",nullable = false)
     private Place place;
 
     public Address() {
