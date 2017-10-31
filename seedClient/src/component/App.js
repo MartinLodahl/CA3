@@ -5,7 +5,7 @@ import Logout from "./pages/basic/Logout";
 import About from "./pages/basic/About";
 import UserPage from "./pages/user/UserPage";
 import AdminPage from "./pages/admin/AdminPage";
-import AllUsersPage from "./pages/user/AllUsersPage";
+import AllUsersPage from "./pages/admin/AllUsersPage";
 import TopMenu from "./pages/basic/TopMenu";
 import Rental from "./pages/basic/Rental";
 

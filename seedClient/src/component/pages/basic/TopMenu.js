@@ -32,7 +32,6 @@ class TopMenu extends Component {
               <li><Link to="/about">About</Link></li>
               <li><Link to="/rental">Rental of houses</Link></li>
               {this.state.loggedIn && this.state.isUser && (<li><Link to="/user">Page for Users </Link></li>)}
-              {this.state.loggedIn && this.state.isUser && (<li><Link to="/random">Page for random number </Link></li>)}
               {this.state.loggedIn && this.state.isAdmin && (<li><Link to="/admin">Page for Admins</Link></li>)}
               {this.state.loggedIn && this.state.isAdmin && (<li><Link to="/users">View of all users</Link></li>)}
             </ul>
