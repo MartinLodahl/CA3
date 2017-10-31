@@ -1,7 +1,7 @@
 import jwtDecode from "jwt-decode";
 import fetchHelper, { errorChecker } from "../facades/fetchHelpers"
 
-const URL = require("../../package.json").serverURL;
+const URL = require("../../../package.json").serverURL;
 
 class AuthenticationHandler {
 
@@ -98,6 +98,42 @@ class AuthenticationHandler {
     }
     let resFromFirstPromise=null;  //Pass on response the "second" promise so we can read errors from server
     fetch(URL + "api/login", options)
+      .then(res => {
+        resFromFirstPromise = res;
+        return res.json();
+      })
+      .then(data => {
+        errorChecker(resFromFirstPromise, data);
+        this.setToken(data.token);
+        if (this._token != null) {
+          this._userWasLoggenIn(cb);
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        if (cb) {
+          cb({ errorMessage: fetchHelper.addJustErrorMessage(err) });
+        }
+      })
+    return;
+  }
+
+  create = (userName, passwordHash, cb) => {
+    this._errorMessage = "";
+    if (this._token != null) {
+      this._userWasLoggenIn(cb);
+    }
+    var user = { userName, passwordHash };
+
+    var options = {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      })
+    }
+    let resFromFirstPromise=null;  //Pass on response the "second" promise so we can read errors from server
+    fetch(URL + "api/create/user", options)
       .then(res => {
         resFromFirstPromise = res;
         return res.json();
