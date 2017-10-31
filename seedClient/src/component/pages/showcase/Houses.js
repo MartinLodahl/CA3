@@ -26,7 +26,7 @@ class Houses extends Component {
                     </table>
                 </div>
                 <div class="col-sm-6">
-                    <h1>More information here</h1>
+
                 </div>
             </div>
         )
@@ -46,6 +46,5 @@ const printHouse = (houses) => {
     }, this);
     return <tbody> {rows} </tbody>
 }
-
 
 export default Houses;
