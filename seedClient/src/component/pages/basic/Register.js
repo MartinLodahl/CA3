@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import auth from "../authorization/auth";
+import auth from "../../authorization/auth";
 
 class Register extends Component {
   constructor() {
