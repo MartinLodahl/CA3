@@ -19,6 +19,18 @@ class Register extends Component {
       this.setState({ err: "" });
       this.props.history.push("/");
     });
+    setTimeout( function(){
+      auth.login( user, pass, (err, loggedIn) => {
+        {/*
+        TO make error handling? 
+        if (err) {
+          return this.setState({ err: err.errorMessage });
+        }
+        this.setState({ err: "" });
+        this.props.history.push("/");
+        */}
+      });
+  }, 2000);
   }
 
   onChange = (e) => {
