@@ -8,13 +8,14 @@ import RandomPage from "./RandomPage";
 import AdminPage from "./AdminPage";
 import AllUsersPage from "./AllUsersPage";
 import TopMenu from "./TopMenu";
-
+import Rental from "./Rental";
 
 function App() {
   return (
     <div>
       <TopMenu />
       <Switch>
+        <Route path="/rental" component={Rental} />
         <Route path="/login" component={Login} />
         <Route path="/logout" component={Logout} />
         <Route path="/about" component={About} />
