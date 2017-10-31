@@ -36,11 +36,8 @@ const data = [
 
 class housesMock {
     constructor() {
-        this.observers = [];
+        this.data = data;
     }
-    addObserver = (observer) => { this.observers.push(observer); this.loadData(); };
-    loadData = () => {
-        this.observers.forEach(obs => obs.notify(data));
-    };
 }
+
 export default new housesMock();
