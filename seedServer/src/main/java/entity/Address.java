@@ -7,6 +7,7 @@ package entity;
 
 import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,9 +29,8 @@ public class Address implements Serializable {
     
     @Column(length = 255,name = "_STREET",nullable = false)
     private String street;
-    @OneToOne
+    @OneToOne(cascade=CascadeType.PERSIST)
     private Zip zip;
-    @OneToOne(mappedBy = "address")
     private Place place;
 
     public Address() {

@@ -60,6 +60,11 @@ public class Image implements Serializable {
         this.url = url;
     }
 
+    @Override
+    public String toString() {
+        return "Image{" + "id=" + id + ", place=" + place + ", url=" + url + '}';
+    }
+
     
     
 }
