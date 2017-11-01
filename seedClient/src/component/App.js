@@ -15,11 +15,8 @@ function App() {
       <TopMenu />
       <Switch>
         <Route path="/rental" component={Rental} />
-
-        {/* User pages */}
+        
         <Route path="/user" component={UserPage} />
-
-        {/* admin pages */}
         <Route path="/admin" component={AdminPage} />
 
         <Route path="/about" component={About} />
