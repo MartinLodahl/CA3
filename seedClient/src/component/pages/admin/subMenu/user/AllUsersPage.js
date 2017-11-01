@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import adminData from "../../../facades/adminFacade";
+import adminData from "../../../../facades/adminFacade";
 
 class AllUsersPage extends Component {
 

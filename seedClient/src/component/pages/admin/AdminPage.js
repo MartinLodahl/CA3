@@ -5,11 +5,11 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-
-import AllUsersPage from './subMenu/AllUsersPage';
+import AllUsersPage from './subMenu/user/AllUsersPage';
+import EditUser from './subMenu/user/EditUser';
+import EditHouse from './subMenu/house/EditHouse';
+import AddHouse from './subMenu/house/AddHouse';
 import Default from './subMenu/Default';
-import EditHouse from './subMenu/EditHouse';
-import AddHouse from './subMenu/AddHouse';
 import NotFound from './subMenu/NotFound';
 
 class AdminPage extends Component {
