@@ -38,6 +38,7 @@ public class UserFacade implements IUserFacade {
         }
     }
 
+    @Override
     public List<IUser> getAllUsers() {
         EntityManager em = getEntityManager();
         try {

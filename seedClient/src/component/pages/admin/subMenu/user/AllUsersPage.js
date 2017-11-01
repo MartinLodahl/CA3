@@ -5,7 +5,7 @@ class AllUsersPage extends Component {
 
   constructor() {
     super();
-    this.state = { data: "", err: "" }
+    this.state = { message: "", data: "", err: "" }
   }
 
   componentWillMount() {
@@ -17,8 +17,16 @@ class AllUsersPage extends Component {
       if (e) {
         return this.setState({ err: e.err })
       }
-      this.setState({ err: "", data });
-    }, "api/listusers");
+      var message ="";
+      for (let i=0; i< data.length;i++) {
+        if(i==data.length-1){
+          message+=data[i];
+        }else {
+        message+=data[i] + " , ";   
+      }}
+      this.setState({ err: "", data: data, message:message });
+      console.log(message);
+    }, "api/demoadmin/users");
   }
 
   render() {
@@ -27,7 +35,7 @@ class AllUsersPage extends Component {
         <h2>All users</h2>
         <p>This list contains all the users in the system</p>
         <div className="msgFromServer">
-          {this.state.data}
+        {this.state.message}
         </div>
         {this.state.err && (
           <div className="alert alert-danger errmsg-left" role="alert">
