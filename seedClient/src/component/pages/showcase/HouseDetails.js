@@ -15,10 +15,10 @@ class HouseDetails extends Component {
         const house = this.state.house;
         return (
             <div>
-                <div class="col-sm-4">
+                <div className="col-sm-4">
                     <img src={house.img[1].url} width="160" height="160" />
                 </div>
-                <div class="col-sm-8">
+                <div className="col-sm-8">
                     <p>{house.description}</p>
                 </div>
                 {/*

@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
 import adminData from "../../facades/adminFacade";
-import { Link } from "react-router-dom";
+import { 
+  Link,
+  Switch,
+  Route
+} from "react-router-dom";
+import AllUsersPage from './AllUsersPage';
 
 class AdminPage extends Component {
 
@@ -29,16 +34,9 @@ class AdminPage extends Component {
           <li><Link to={`/admin/users`}>users</Link></li>
         </div>
         <div className="col-sm-11">
-          <h2>Admins</h2>
-          <p>This message is fetched from the server if you were properly logged in</p>
-          <div className="msgFromServer">
-            {this.state.data}
-          </div>
-          {this.state.err && (
-            <div className="alert alert-danger errmsg-left" role="alert">
-              {this.state.err}
-            </div>
-          )}
+          <Switch>
+            <Route path='/admin/users' component={AllUsersPage}/>
+          </Switch>
         </div>
       </div>
     )

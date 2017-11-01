@@ -21,7 +21,6 @@ function App() {
         <Route path="/user" component={UserPage} />
 
         {/* admin pages */}
-        <Route path="/users" component={AllUsersPage} />
         <Route path="/admin" component={AdminPage} />
 
         <Route path="/about" component={About} />
