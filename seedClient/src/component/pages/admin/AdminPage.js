@@ -10,6 +10,7 @@ import AllUsersPage from './subMenu/AllUsersPage';
 import Default from './subMenu/Default';
 import EditHouse from './subMenu/EditHouse';
 import AddHouse from './subMenu/AddHouse';
+import NotFound from './subMenu/NotFound';
 
 class AdminPage extends Component {
 
@@ -27,11 +28,12 @@ class AdminPage extends Component {
         </div>
         <div className="col-sm-10">
           <Switch>
+            <Route exact path='/admin/' component={Default} />
             <Route path='/admin/users' component={AllUsersPage} />
             <Route path='/admin/editHouse' component={EditHouse} />
             <Route path='/admin/addHouse' component={AddHouse} />
             {/*Must be the lowest point!*/}
-            <Route path='/' component={Default} />
+            <Route component={NotFound} />
           </Switch>
         </div>
       </div>
