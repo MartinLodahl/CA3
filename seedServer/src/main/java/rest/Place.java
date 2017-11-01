@@ -70,6 +70,5 @@ public class Place {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu_development");
         PlaceFacade pF = new PlaceFacade(emf);
         pF.createPlace(p);
-        
     }
 }
