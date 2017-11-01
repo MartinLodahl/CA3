@@ -18,11 +18,36 @@ class Houses extends Component {
                             <th>Rating</th>
                         </tr>
                     </thead>
-                    {printHouse(this.state.houses)}
+                    {printHouse2(this.state.houses)}
                 </table>
             </div>
         )
     }
+}
+
+
+const printHouse2 = (houses) => {
+    const houseData = houses;
+    let rows = [];
+    const
+        click = (event) => {
+            window.location = event.target.parentElement.getAttribute("href");
+        }
+    houseData.forEach(function (e) {
+        rows.push(
+            <tr key={e.id} href={`/#/rental/${e.id}`} onClick={click}>
+                <td>
+                    <img src={e.img[1].url} width="80" height="80" alt="nej" />
+                </td>
+                <td className="text-left">
+                    <b>{e.title}</b> <br />
+                    {e.description}
+                </td>
+                <td>{`${e.rating.stars} (${e.rating.amount})`}</td>
+            </tr>
+        );
+    }, this);
+    return <tbody>{rows}</tbody>
 }
 
 const printHouse = (houses) => {
