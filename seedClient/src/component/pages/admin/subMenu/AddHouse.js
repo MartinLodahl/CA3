@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import adminData from "../../../facades/adminFacade";
 
-class Default extends Component {
+class AddHouse extends Component {
 
     constructor() {
         super();
@@ -11,11 +11,12 @@ class Default extends Component {
     render() {
         return (
             <div>
-                <h2>Admins page</h2>
-                <p>You can navigate the submenus on the left...</p>
+                <h2>House management</h2>
+                <p>Here you can add new houses that customers can rent</p>
+                
             </div>
         )
     }
 }
 
-export default Default;
+export default AddHouse;

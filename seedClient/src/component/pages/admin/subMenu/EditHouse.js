@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import adminData from "../../../facades/adminFacade";
 
-class Default extends Component {
+class EditHouse extends Component {
 
     constructor() {
         super();
@@ -11,11 +11,12 @@ class Default extends Component {
     render() {
         return (
             <div>
-                <h2>Admins page</h2>
-                <p>You can navigate the submenus on the left...</p>
+                <h2>House management</h2>
+                <p>Here you can edit the information about houses</p>
+                <input type='number' name='houseID'/>
             </div>
         )
     }
 }
 
-export default Default;
+export default EditHouse;
