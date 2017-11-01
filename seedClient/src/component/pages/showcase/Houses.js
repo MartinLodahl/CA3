@@ -6,15 +6,15 @@ class Houses extends Component {
         super();
         this.state = { houses: props.houses, rating: 0 }
     }
-    handleClick = (rate) => {
-        console.log(rate);
-        this.setState({rating: rate});
+    onChange = (e) => {
+        const value = e.target.value;        
+        this.setState({rating: value});
     }
 
     render() {
         return (
             <div>
-            <button onClick={(e) => this.handleClick(1)}>
+            {/*<button onClick={(e) => this.handleClick(1)}>
             Search 1 star or better
             </button>
             <button onClick={(e) => this.handleClick(2)}>
@@ -28,7 +28,10 @@ class Houses extends Component {
             </button>
             <button onClick={(e) => this.handleClick(5)}>
             Search 5 star or better
-            </button>
+        </button>*/}
+        <form>
+        <input type="text" value={this.state.rating} onChange={this.onChange} className="form-control" id="username" placeholder="User Name" required autoFocus />
+        </form>
                 <table className="table table-hover">
                     <thead>
                         <tr>
@@ -73,6 +76,7 @@ const printHouse2 = (houses) => {
 }
 
 const filterHouse = (houses, rate) => {
+    console.log(rate);
     const houseData = houses;
     let rows = [];
     const
