@@ -21,14 +21,14 @@ class Register extends Component {
     });
     setTimeout( function(){
       auth.login( user, pass, (err, loggedIn) => {
-        {/*
+        /*
         TO make error handling? 
         if (err) {
           return this.setState({ err: err.errorMessage });
         }
         this.setState({ err: "" });
         this.props.history.push("/");
-        */}
+        */
       });
   }, 2000);
   }

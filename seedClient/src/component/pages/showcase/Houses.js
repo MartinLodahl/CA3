@@ -1,50 +1,68 @@
 import React, { Component } from "react";
-import housesMock from "../../mock/housesMock";
-
+import { Link } from "react-router-dom";
 class Houses extends Component {
 
-    constructor() {
+    constructor(props) {
         super();
-        this.state = { houses: housesMock.data }
+        this.state = { houses: props.houses }
     }
 
     render() {
         return (
             <div>
-                <div class="col-sm-6">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>House</th>
-                                <th>Description</th>
-                                <th>Rating</th>
-                            </tr>
-                        </thead>
-
-                        {printHouse(this.state.houses)}
-
-                    </table>
-                </div>
-                <div class="col-sm-6">
-
-                </div>
+                <table className="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>House</th>
+                            <th>Description</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+                    {printHouse2(this.state.houses)}
+                </table>
             </div>
         )
     }
+}
+
+
+const printHouse2 = (houses) => {
+    const houseData = houses;
+    let rows = [];
+    const
+        click = (event) => {
+            window.location = event.target.parentElement.getAttribute("href");
+        }
+    houseData.forEach(function (e) {
+        rows.push(
+            <tr key={e.id} href={`/#/rental/${e.id}`} onClick={click}>
+                <td>
+                    <img src={e.img[1].url} width="80" height="80" alt="nej" />
+                </td>
+                <td className="text-left">
+                    <b>{e.title}</b> <br />
+                    {e.description}
+                </td>
+                <td>{`${e.rating.stars} (${e.rating.amount})`}</td>
+            </tr>
+        );
+    }, this);
+    return <tbody>{rows}</tbody>
 }
 
 const printHouse = (houses) => {
     const houseData = houses;
     let rows = [];
     houseData.forEach(function (e) {
-        let b = <tr>
-            <td>house</td>
-            <td>{e.description}</td>
-            <td>{e.rating.stars}</td>
-        </tr>
-        rows.push(b);
+        rows.push(
+            <tr key={e.id}>
+                <td>house</td>
+                <td>{e.description}</td>
+                <td><Link to={`/rental/${e.id}`}>{e.id}</Link></td>
+            </tr>
+        );
     }, this);
-    return <tbody> {rows} </tbody>
+    return <tbody>{rows}</tbody>
 }
 
 export default Houses;

@@ -18,9 +18,7 @@ class TopMenu extends Component {
   }
 
   render() {
-
     const logInStatus = this.state.loggedIn ? "Logged in as: " + this.state.userName : "";
-    //console.log("RENDERING - REMOVE ME",JSON.stringify(this.state));
     return (
       <div>
         <nav className="navbar navbar-default" >
@@ -32,7 +30,6 @@ class TopMenu extends Component {
               <li><Link to="/rental">Rental of houses</Link></li>
               {this.state.loggedIn && this.state.isUser && (<li><Link to="/user">Page for Users </Link></li>)}
               {this.state.loggedIn && this.state.isAdmin && (<li><Link to="/admin">Page for Admins</Link></li>)}
-              {this.state.loggedIn && this.state.isAdmin && (<li><Link to="/users">View of all users</Link></li>)}
               <li><Link to="/about">About</Link></li>
             </ul>
             <ul className="nav navbar-nav navbar-right">
@@ -43,15 +40,14 @@ class TopMenu extends Component {
                 ) :
                 (
                   [ 
-                    <li><Link to="/login"><span className="glyphicon glyphicon-log-in"></span> Login</Link></li>,
-                    <li><Link to="/register"><span className="glyphicon glyphicon-plus"></span> Register</Link></li>
+                    <li key='1'><Link to="/login"><span className="glyphicon glyphicon-log-in"></span> Login</Link></li>,
+                    <li key='2'><Link to="/register"><span className="glyphicon glyphicon-plus"></span> Register</Link></li>
                   ]
                 )
               }
             </ul>
           </div>
         </nav>
-
       </div>
     )
   }
