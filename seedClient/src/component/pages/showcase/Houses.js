@@ -48,10 +48,13 @@ class Houses extends Component {
 const printHouse2 = (houses) => {
     const houseData = houses;
     let rows = [];
-    const
-        click = (event) => {
-            window.location = event.target.parentElement.getAttribute("href");
+    const click = (event) => {
+        let parent = event.target.parentElement;
+        if (!parent.getAttribute("href")) {
+            parent = parent.parentElement;
         }
+        window.location = parent.getAttribute("href");
+    }
     houseData.forEach(function (e) {
         rows.push(
             <tr key={e.id} href={`/#/rental/${e.id}`} onClick={click}>
@@ -108,5 +111,4 @@ const printHouse = (houses) => {
     }, this);
     return <tbody>{rows}</tbody>
 }
-
 export default Houses;

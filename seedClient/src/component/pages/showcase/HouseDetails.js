@@ -21,7 +21,8 @@ class HouseDetails extends Component {
                 <div className="col-sm-8">
                     <p>{house.description}</p>
                 </div>
-                {/*
+                {
+                    /*
                 <div class="col-sm-3">
                     <p>Average user rating {house.rating.stars} on {house.rating.amount} ratings</p>
                 </div>
