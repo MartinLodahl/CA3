@@ -1,12 +1,6 @@
-import React, { Component } from 'react'
-import adminData from "../../../facades/adminFacade";
+import React, { Component } from 'react';
 
 class NotFound extends Component {
-
-    constructor() {
-        super();
-        this.state = { data: "", err: "" }
-    }
 
     render() {
         return (
