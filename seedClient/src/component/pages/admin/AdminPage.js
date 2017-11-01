@@ -5,9 +5,12 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-
-import AllUsersPage from './subMenu/AllUsersPage';
+import AllUsersPage from './subMenu/user/AllUsersPage';
+import EditUser from './subMenu/user/EditUser';
+import EditHouse from './subMenu/house/EditHouse';
+import AddHouse from './subMenu/house/AddHouse';
 import Default from './subMenu/Default';
+import NotFound from './subMenu/NotFound';
 
 class AdminPage extends Component {
 
@@ -18,16 +21,19 @@ class AdminPage extends Component {
           <div className="navbar-collapse collapse sidebar-navbar-collapse">
             <ul className="nav navbar-nav">
               <li><Link to={`/admin/users`}>users</Link></li>
-              <li><Link to={`/admin/other`}>others</Link></li>
+              <li><Link to={`/admin/editHouse`}>Edit house</Link></li>
+              <li><Link to={`/admin/addHouse`}>Add house</Link></li>
             </ul>
           </div>
         </div>
         <div className="col-sm-10">
           <Switch>
+            <Route exact path='/admin/' component={Default} />
             <Route path='/admin/users' component={AllUsersPage} />
-            <Route path='/admin/other' component={Default} />
+            <Route path='/admin/editHouse' component={EditHouse} />
+            <Route path='/admin/addHouse' component={AddHouse} />
             {/*Must be the lowest point!*/}
-            <Route path='/' component={Default} />
+            <Route component={NotFound} />
           </Switch>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import adminData from "../../../facades/adminFacade";
 
-class Default extends Component {
+class NotFound extends Component {
 
     constructor() {
         super();
@@ -10,12 +10,13 @@ class Default extends Component {
 
     render() {
         return (
-            <div>
-                <h2>Admins page</h2>
-                <p>You can navigate the submenus on the left...</p>
+            <div className="text-center">
+                <h1>404</h1>
+                <h2>Page doesnt exist!</h2>
+                <h2>Please select a valid option on the left!</h2>
             </div>
         )
     }
 }
 
-export default Default;
+export default NotFound;
