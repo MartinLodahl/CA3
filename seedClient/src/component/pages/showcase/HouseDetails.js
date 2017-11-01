@@ -18,12 +18,14 @@ class HouseDetails extends Component {
                 <div class="col-sm-4">
                     <img src={house.img[1].url} width="160" height="160" />
                 </div>
-                <div class="col-sm-5">
+                <div class="col-sm-8">
                     <p>{house.description}</p>
                 </div>
+                {/*
                 <div class="col-sm-3">
                     <p>Average user rating {house.rating.stars} on {house.rating.amount} ratings</p>
                 </div>
+                */}
             </div>
         )
     }

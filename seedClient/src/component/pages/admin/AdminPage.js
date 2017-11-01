@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import adminData from "../../facades/adminFacade";
+import { Link } from "react-router-dom";
 
 class AdminPage extends Component {
 
@@ -24,16 +25,21 @@ class AdminPage extends Component {
   render() {
     return (
       <div>
-        <h2>Admins</h2>
-        <p>This message is fetched from the server if you were properly logged in</p>
-        <div className="msgFromServer">
-          {this.state.data}
+        <div className="col-sm-1">
+          <li><Link to={`/admin/users`}>users</Link></li>
         </div>
-        {this.state.err && (
-          <div className="alert alert-danger errmsg-left" role="alert">
-            {this.state.err}
+        <div className="col-sm-11">
+          <h2>Admins</h2>
+          <p>This message is fetched from the server if you were properly logged in</p>
+          <div className="msgFromServer">
+            {this.state.data}
           </div>
-        )}
+          {this.state.err && (
+            <div className="alert alert-danger errmsg-left" role="alert">
+              {this.state.err}
+            </div>
+          )}
+        </div>
       </div>
     )
   }
