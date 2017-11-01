@@ -8,10 +8,14 @@ package facades;
 import entity.Place;
 import entity.Role;
 import entity.User;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Query;
+import security.IUser;
 import security.PasswordStorage;
 
 /**
@@ -47,4 +51,20 @@ public class PlaceFacade {
         }
     }
     
+    public List<Place> getAllPlaceses(){
+          EntityManager em = getEntityManager();
+          List<Place> tempList = new ArrayList();
+          try {
+            System.out.println("before");
+            Query query = em.createQuery("SELECT e FROM SEED_PLACE e");
+            tempList=query.getResultList();
+             System.out.println("templist"+tempList);
+            return tempList;
+        }catch(Exception e){
+              System.out.println("ERROR getAllPLACESES# could not fetch all placeses from databse");
+        }finally {
+            em.close();
+        }
+          return null;
+    }
 }

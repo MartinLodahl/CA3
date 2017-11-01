@@ -21,7 +21,7 @@ import javax.persistence.OneToOne;
  *
  * @author pravien
  */
-@Entity
+@Entity(name = "SEED_PLACE")
 public class Place implements Serializable {
     
     @Id
