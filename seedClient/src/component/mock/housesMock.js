@@ -1,9 +1,10 @@
 const data = [
     {
         "id": 1,
+        "title": "Super shitty house",
         "address": {},
         "gps": {},
-        "description": "Super shitty house",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
         "rating": {
             "stars": 5,
             "amount": 2
@@ -19,9 +20,10 @@ const data = [
     },
     {
         "id": 2,
+        "title": "House",
         "address": {},
         "gps": {},
-        "description": "House",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
         "rating": {
             "stars": 5,
             "amount": 2

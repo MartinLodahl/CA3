@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import adminData from "../../facades/adminFacade";
+import adminData from "../../../../facades/adminFacade";
 
 class AllUsersPage extends Component {
 
@@ -32,8 +32,8 @@ class AllUsersPage extends Component {
   render() {
     return (
       <div>
-        <h2>Admins</h2>
-        <p>This message is fetched from the server if you were properly logged in</p>
+        <h2>All users</h2>
+        <p>This list contains all the users in the system</p>
         <div className="msgFromServer">
         {this.state.message}
         </div>

@@ -31,6 +31,8 @@ public class Address implements Serializable {
     private String street;
     @OneToOne(cascade=CascadeType.PERSIST)
     private Zip zip;
+    
+    @OneToOne(mappedBy = "address")
     private Place place;
 
     public Address() {
