@@ -4,12 +4,31 @@ class Houses extends Component {
 
     constructor(props) {
         super();
-        this.state = { houses: props.houses }
+        this.state = { houses: props.houses, rating: 0 }
+    }
+    handleClick = (rate) => {
+        console.log(rate);
+        this.setState({rating: rate});
     }
 
     render() {
         return (
             <div>
+            <button onClick={(e) => this.handleClick(1)}>
+            Search 1 star or better
+            </button>
+            <button onClick={(e) => this.handleClick(2)}>
+            Search 2 star or better
+            </button>
+            <button onClick={(e) => this.handleClick(3)}>
+            Search 3 star or better
+            </button>
+            <button onClick={(e) => this.handleClick(4)}>
+            Search 4 star or better
+            </button>
+            <button onClick={(e) => this.handleClick(5)}>
+            Search 5 star or better
+            </button>
                 <table className="table table-hover">
                     <thead>
                         <tr>
@@ -18,7 +37,7 @@ class Houses extends Component {
                             <th>Rating</th>
                         </tr>
                     </thead>
-                    {printHouse2(this.state.houses)}
+                    {filterHouse(this.state.houses, this.state.rating)}
                 </table>
             </div>
         )
@@ -47,6 +66,31 @@ const printHouse2 = (houses) => {
             </tr>
         );
     }, this);
+    return <tbody>{rows}</tbody>
+}
+
+const filterHouse = (houses, rate) => {
+    const houseData = houses;
+    let rows = [];
+    const
+    click = (event) => {
+        window.location = event.target.parentElement.getAttribute("href");
+    }
+    houseData.forEach(function (e) {
+        if(e.rating.stars >= rate){
+        rows.push(
+            <tr key={e.id} href={`/#/rental/${e.id}`} onClick={click}>
+            <td>
+                <img src={e.img[1].url} width="80" height="80" alt="nej" />
+            </td>
+            <td className="text-left">
+                <b>{e.title}</b> <br />
+                {e.description}
+            </td>
+            <td>{`${e.rating.stars} (${e.rating.amount})`}</td>
+        </tr>
+        );
+    }}, this);
     return <tbody>{rows}</tbody>
 }
 
