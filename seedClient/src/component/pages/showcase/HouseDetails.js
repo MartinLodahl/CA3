@@ -16,7 +16,7 @@ class HouseDetails extends Component {
         return (
             <div>
                 <div className="col-sm-4">
-                    <img src={house.img[1].url} width="160" height="160" />
+                    <img src={house.img[1].url} width="160" height="160" alt="nej" />
                 </div>
                 <div className="col-sm-8">
                     <p>{house.description}</p>
