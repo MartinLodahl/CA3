@@ -39,7 +39,7 @@ class AllUsersPage extends Component {
         <h2>All users</h2>
         <p>This list contains all the users in the system</p>
         <div className="msgFromServer">
-          {this.state.message}
+          {/*this.state.message*/ userList(this.state.data)}
         </div>
         {this.state.err && (
           <div className="alert alert-danger errmsg-left" role="alert">
@@ -51,6 +51,28 @@ class AllUsersPage extends Component {
   }
 }
 
+const userList = (users) => {
+  const usersArr = users;
+  console.log(usersArr);
 
+  let rows = [];
+  /*usersArr.forEach(function (e) {
+    rows.push(
+      <li>
+        {e}
+      </li>
+    )
+  }, this);*/
+
+  for (var i = 0; i < usersArr.length; i++) {
+    rows.push(
+      <li>
+        {usersArr[i]}
+        {console.log('i: ' + i + " content: " + usersArr[i])}
+      </li>
+    )
+  }
+  return <li> {rows} </li>;
+}
 
 export default AllUsersPage;
