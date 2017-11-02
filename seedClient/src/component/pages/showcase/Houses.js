@@ -76,48 +76,4 @@ const filterHouse = (houses, rate) => {
     return <tbody>{rows}</tbody>
 }
 
-<<<<<<< HEAD
-const filterHouse = (houses, rate) => {
-    console.log(rate);
-    const houseData = houses;
-    let rows = [];
-    const
-        click = (event) => {
-            window.location = event.target.parentElement.getAttribute("href");
-        }
-    houseData.forEach(function (e) {
-        if (e.rating.stars >= rate) {
-            rows.push(
-                <tr key={e.id} href={`/#/rental/${e.id}`} onClick={click}>
-                    <td>
-                        <img src={e.img[1].url} width="80" height="80" alt="nej" />
-                    </td>
-                    <td className="text-left">
-                        <b>{e.title}</b> <br />
-                        {e.description}
-                    </td>
-                    <td>{`${e.rating.stars} (${e.rating.amount})`}</td>
-                </tr>
-            );
-        }
-    }, this);
-    return <tbody>{rows}</tbody>
-}
-
-const printHouse = (houses) => {
-    const houseData = houses;
-    let rows = [];
-    houseData.forEach(function (e) {
-        rows.push(
-            <tr key={e.id}>
-                <td>house</td>
-                <td>{e.description}</td>
-                <td><Link to={`/rental/${e.id}`}>{e.id}</Link></td>
-            </tr>
-        );
-    }, this);
-    return <tbody>{rows}</tbody>
-}
-=======
->>>>>>> b5d1a056adcbd58b1b42ffb784e21e445a110daa
 export default Houses;
