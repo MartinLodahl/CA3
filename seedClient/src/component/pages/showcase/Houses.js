@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 class Houses extends Component {
 
     constructor(props) {
@@ -47,8 +46,8 @@ class Houses extends Component {
     }
 }
 
-
-const printHouse2 = (houses) => {
+const filterHouse = (houses, rate) => {
+    console.log(rate);
     const houseData = houses;
     let rows = [];
     const click = (event) => {
@@ -59,22 +58,25 @@ const printHouse2 = (houses) => {
         window.location = parent.getAttribute("href");
     }
     houseData.forEach(function (e) {
-        rows.push(
-            <tr key={e.id} href={`/#/rental/${e.id}`} onClick={click}>
-                <td>
-                    <img src={e.img[1].url} width="80" height="80" alt="nej" />
-                </td>
-                <td className="text-left">
-                    <b>{e.title}</b> <br />
-                    {e.description}
-                </td>
-                <td>{`${e.rating.stars} (${e.rating.amount})`}</td>
-            </tr>
-        );
+        if (e.rating.stars >= rate) {
+            rows.push(
+                <tr key={e.id} href={`/#/rental/${e.id}`} onClick={click}>
+                    <td>
+                        <img src={e.img[1].url} width="80" height="80" alt="nej" />
+                    </td>
+                    <td className="text-left">
+                        <b>{e.title}</b> <br />
+                        {e.description}
+                    </td>
+                    <td>{`${e.rating.stars} (${e.rating.amount})`}</td>
+                </tr>
+            );
+        }
     }, this);
     return <tbody>{rows}</tbody>
 }
 
+<<<<<<< HEAD
 const filterHouse = (houses, rate) => {
     console.log(rate);
     const houseData = houses;
@@ -116,4 +118,6 @@ const printHouse = (houses) => {
     }, this);
     return <tbody>{rows}</tbody>
 }
+=======
+>>>>>>> b5d1a056adcbd58b1b42ffb784e21e445a110daa
 export default Houses;
