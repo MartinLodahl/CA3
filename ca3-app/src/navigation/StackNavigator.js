@@ -11,7 +11,7 @@ const Navigator = StackNavigator({
 });
 
 
- export default class StackNavigator extends React.Component {
+ export default class StackNavigat extends React.Component {
   render() {
     return (
      <Navigator/>

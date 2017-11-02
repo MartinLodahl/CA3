@@ -1,10 +1,11 @@
 import React from 'react';
-import StackNavigator from './src/navigation/StackNavigator';
+import StackNavigat from './src/navigation/StackNavigator';
+import { StyleSheet, Text, View, Button, ScrollView } from 'react-native';
 
  export default class App extends React.Component {
   render() {
     return (
-     <StackNavigator/>
+     <StackNavigat/>
     )
   }
 } 
