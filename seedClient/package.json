@@ -1,6 +1,6 @@
 {
   "name": "seedclient",
-  "serverURL": "http://www.alfen.me:8080/Seed/",
+  "serverURL": "https://www.alfen.me/seedMaven/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

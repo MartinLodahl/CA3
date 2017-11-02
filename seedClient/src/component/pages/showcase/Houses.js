@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 class Houses extends Component {
 
     constructor(props) {
@@ -7,14 +6,14 @@ class Houses extends Component {
         this.state = { houses: props.houses, rating: 0 }
     }
     onChange = (e) => {
-        const value = e.target.value;        
-        this.setState({rating: value});
+        const value = e.target.value;
+        this.setState({ rating: value });
     }
 
     render() {
         return (
             <div>
-            {/*<button onClick={(e) => this.handleClick(1)}>
+                {/*<button onClick={(e) => this.handleClick(1)}>
             Search 1 star or better
             </button>
             <button onClick={(e) => this.handleClick(2)}>
@@ -29,9 +28,9 @@ class Houses extends Component {
             <button onClick={(e) => this.handleClick(5)}>
             Search 5 star or better
         </button>*/}
-        <form>
-        <input type="text" value={this.state.rating} onChange={this.onChange} className="form-control" id="username" placeholder="User Name" required autoFocus />
-        </form>
+                <form>
+                    <input type="text" value={this.state.rating} onChange={this.onChange} className="form-control" id="username" placeholder="" required autoFocus />
+                </form>
                 <table className="table table-hover">
                     <thead>
                         <tr>
@@ -47,8 +46,8 @@ class Houses extends Component {
     }
 }
 
-
-const printHouse2 = (houses) => {
+const filterHouse = (houses, rate) => {
+    console.log(rate);
     const houseData = houses;
     let rows = [];
     const click = (event) => {
@@ -59,45 +58,49 @@ const printHouse2 = (houses) => {
         window.location = parent.getAttribute("href");
     }
     houseData.forEach(function (e) {
-        rows.push(
-            <tr key={e.id} href={`/#/rental/${e.id}`} onClick={click}>
-                <td>
-                    <img src={e.img[1].url} width="80" height="80" alt="nej" />
-                </td>
-                <td className="text-left">
-                    <b>{e.title}</b> <br />
-                    {e.description}
-                </td>
-                <td>{`${e.rating.stars} (${e.rating.amount})`}</td>
-            </tr>
-        );
+        if (e.rating.stars >= rate) {
+            rows.push(
+                <tr key={e.id} href={`/#/rental/${e.id}`} onClick={click}>
+                    <td>
+                        <img src={e.img[1].url} width="80" height="80" alt="nej" />
+                    </td>
+                    <td className="text-left">
+                        <b>{e.title}</b> <br />
+                        {e.description}
+                    </td>
+                    <td>{`${e.rating.stars} (${e.rating.amount})`}</td>
+                </tr>
+            );
+        }
     }, this);
     return <tbody>{rows}</tbody>
 }
 
+<<<<<<< HEAD
 const filterHouse = (houses, rate) => {
     console.log(rate);
     const houseData = houses;
     let rows = [];
     const
-    click = (event) => {
-        window.location = event.target.parentElement.getAttribute("href");
-    }
+        click = (event) => {
+            window.location = event.target.parentElement.getAttribute("href");
+        }
     houseData.forEach(function (e) {
-        if(e.rating.stars >= rate){
-        rows.push(
-            <tr key={e.id} href={`/#/rental/${e.id}`} onClick={click}>
-            <td>
-                <img src={e.img[1].url} width="80" height="80" alt="nej" />
-            </td>
-            <td className="text-left">
-                <b>{e.title}</b> <br />
-                {e.description}
-            </td>
-            <td>{`${e.rating.stars} (${e.rating.amount})`}</td>
-        </tr>
-        );
-    }}, this);
+        if (e.rating.stars >= rate) {
+            rows.push(
+                <tr key={e.id} href={`/#/rental/${e.id}`} onClick={click}>
+                    <td>
+                        <img src={e.img[1].url} width="80" height="80" alt="nej" />
+                    </td>
+                    <td className="text-left">
+                        <b>{e.title}</b> <br />
+                        {e.description}
+                    </td>
+                    <td>{`${e.rating.stars} (${e.rating.amount})`}</td>
+                </tr>
+            );
+        }
+    }, this);
     return <tbody>{rows}</tbody>
 }
 
@@ -115,4 +118,6 @@ const printHouse = (houses) => {
     }, this);
     return <tbody>{rows}</tbody>
 }
+=======
+>>>>>>> b5d1a056adcbd58b1b42ffb784e21e445a110daa
 export default Houses;

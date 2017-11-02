@@ -17,16 +17,20 @@ class AllUsersPage extends Component {
       if (e) {
         return this.setState({ err: e.err })
       }
-      var message ="";
-      for (let i=0; i< data.length;i++) {
-        if(i==data.length-1){
-          message+=data[i];
-        }else {
-        message+=data[i] + " , ";   
-      }}
-      this.setState({ err: "", data: data, message:message });
+      var message = "";
+      console.log(data);
+      for (let i = 0; i < data.length; i++) {
+        if (i === data.length - 1) {
+          console.log(data[i]);
+          message += data[i];
+        } else {
+          console.log(data[i]);
+          message += data[i] + " , ";
+        }
+      }
+      this.setState({ err: "", data: data, message: message });
       console.log(message);
-    }, "api/demoadmin/users");
+    }, "api/admin/users");
   }
 
   render() {
@@ -35,7 +39,7 @@ class AllUsersPage extends Component {
         <h2>All users</h2>
         <p>This list contains all the users in the system</p>
         <div className="msgFromServer">
-        {this.state.message}
+          {/*this.state.message*/ userList(this.state.data)}
         </div>
         {this.state.err && (
           <div className="alert alert-danger errmsg-left" role="alert">
@@ -45,6 +49,30 @@ class AllUsersPage extends Component {
       </div>
     )
   }
+}
+
+const userList = (users) => {
+  const usersArr = users;
+  console.log(usersArr);
+
+  let rows = [];
+  /*usersArr.forEach(function (e) {
+    rows.push(
+      <li>
+        {e}
+      </li>
+    )
+  }, this);*/
+
+  for (var i = 0; i < usersArr.length; i++) {
+    rows.push(
+      <li>
+        {usersArr[i]}
+        {console.log('i: ' + i + " content: " + usersArr[i])}
+      </li>
+    )
+  }
+  return <li> {rows} </li>;
 }
 
 export default AllUsersPage;

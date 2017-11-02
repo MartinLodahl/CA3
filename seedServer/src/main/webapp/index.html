@@ -17,7 +17,20 @@
       var input = document.querySelector('input[type="file"]');
       var data = new FormData();
       data.append('file', input.files[0]);
-      data.append("user", "User");
+      data.append("user", {
+	    "title":"Huset",
+       "address": {
+           "street": "bip",
+           "zip":{"zip":"2200","city": "København N"}
+       },
+       "gps": {},
+       "description": "For meget skyderi",
+       "rating": {
+           "stars": 5,
+           "amount": 2
+       }
+		
+	});
       fetch('api/registerPlace/file', {
         method: 'POST',
         body: data
