@@ -1,39 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import {
-  StackNavigator,
-} from 'react-navigation';
-import HomeScreen from './HomeScreen';
-import ProfileScreen from './ProfileScreen';
-
-const Navigator = StackNavigator({
-  Home: {screen: HomeScreen },
-  Profile: {screen: ProfileScreen}
-});
-
+import StackNavigator from './src/navigation/StackNavigator';
 
  export default class App extends React.Component {
   render() {
     return (
-     <Navigator/>
+     <StackNavigator/>
     )
   }
 } 
-
-/* class HomeScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Welcome',
-  };
-  render() {
-    const { navigate } = this.props.navigation;
-    return (
-      <View style={styles.container}>
-      <Text>Hey</Text>
-    </View>
-    );
-  }
-} */
-
 
 const styles = StyleSheet.create({
   container: {
