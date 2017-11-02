@@ -20,7 +20,7 @@ import security.IUser;
 import security.IUserFacade;
 import security.UserFacadeFactory;
 
-@Path("demoadmin")
+@Path("admin")
 @RolesAllowed("Admin")
 public class Admin {
 
@@ -41,14 +41,14 @@ public class Admin {
             String json = "{\"users\":[\"";
             List<IUser> users = facade.getAllUsers();
             for (int i = 0; i < users.size(); i++) {
-                json+= users.get(i).getUserName(); 
-                if(i==users.size()-1){
-                    json+="\"]}";
+                json += users.get(i).getUserName();
+                if (i == users.size() - 1) {
+                    json += "\"]}";
                 } else {
-                    json+="\",\"";
+                    json += "\",\"";
                 }
             }
-                System.out.println(json);
+            System.out.println(json);
 //            String json = new Gson().toJson(users);
             return json;
         } catch (Exception e) {
