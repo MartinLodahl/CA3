@@ -70,6 +70,10 @@ public class Place implements Serializable {
     public List<Image> getImages() {
         return images;
     }
+    
+    public void addImage(Image img){
+        this.images.add(img);
+    }
 
     public void setImages(List<Image> images) {
         this.images = images;

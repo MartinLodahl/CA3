@@ -33,7 +33,7 @@ const data = [
                 "url": "https://static.pexels.com/photos/106399/pexels-photo-106399.jpeg"
             }
         }
-    },
+    }
 ];
 
 class housesMock {

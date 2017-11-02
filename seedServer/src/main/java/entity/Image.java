@@ -28,9 +28,7 @@ public class Image implements Serializable {
     public Image() {
     }
 
-    public Image(Long id, Place place, String url) {
-        this.id = id;
-        this.place = place;
+    public Image(String url) {
         this.url = url;
     }
     
