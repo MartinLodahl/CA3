@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import adminData from "../../../facades/adminFacade";
 
 class Default extends Component {
 

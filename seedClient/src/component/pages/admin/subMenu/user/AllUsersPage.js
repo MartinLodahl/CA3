@@ -52,7 +52,13 @@ class AllUsersPage extends Component {
         </div>
         <div className='col-sm-6'>
           <Switch>
-            <Route component={EditUser} />
+            <Route path='/admin/users/:username'
+              render={(props) => {
+                const username = props.match.params.username;
+                return <EditUser {...props} user={username} />
+              }}
+            />
+            <Route exact path='/admin/users/' component={EditUser} />
           </Switch>
         </div>
       </div>
