@@ -11,9 +11,15 @@ class EditUser extends Component {
     render() {
         return (
             <div>
-                <h2>User management</h2>
-                <p>Here you can edit the information about certain users</p>
-                <input type='number' name='houseID'/>
+                <div>
+                    <h2>User management</h2>
+                    <p>Here you can edit the information about certain users. Click on the username on the left</p>
+                </div>
+                <div>
+                    {/* Some kind of text box here to edit user information */}
+                    <h1>**Under development**</h1>
+                    <h2>Selected user {/* username insert here*/} undefined</h2>
+                </div>
             </div>
         )
     }
