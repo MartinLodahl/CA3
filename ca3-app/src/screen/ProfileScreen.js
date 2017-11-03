@@ -27,7 +27,7 @@ export default class ProfileScreen extends React.Component {
         <View style={{backgroundColor:"white"}}>
                 <Text style={{paddingTop:30,fontSize: 25,paddingBottom:5}}>{place.title}</Text>
                 <View style={{justifyContent: 'center',alignItems: 'center'}}>
-                  <Image style={{width: Widdev, height: 300}} source={{uri: place.img[1].url}}/>
+                  <Image style={{width: Widdev, height: 300}} source={{uri: place.images[0].url}}/>
                 </View>
                 <Text style={{textAlign: 'center'}}>{"Description: "+place.description}</Text>
                 <Text style={{textAlign: 'center'}}>{"Street: "+place.address.street}</Text>
