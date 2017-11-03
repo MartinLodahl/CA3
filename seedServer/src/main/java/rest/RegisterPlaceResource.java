@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 import entity.Image;
 import java.io.File;
 import entity.Place;
+import entity.Zip;
 import facades.PlaceFacade;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -56,17 +57,21 @@ public class RegisterPlaceResource {
             @FormDataParam("file") FormDataContentDisposition fileDisposition) throws IOException {
         System.out.println("Just to show how to send additonal data: " + place);
         Place p = new Gson().fromJson(place, Place.class);
-//        p.getGps().setPlace(p);
+        
         System.out.println("Just to show how to send additonal data: " + p.toString());
         String fileName = fileDisposition.getFileName();
         String location = FILE_LOCATION + fileName;
         Image img = new Image(location);
-//        img.setPlace(p);
         p.getImages().add(img);
         saveFile(file, location);
         
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu_development");
         PlaceFacade pF = new PlaceFacade(emf);
+//        String zip = p.getAddress().getZip().getZip();
+//        Long s = pF.doZipExist(zip);
+//        if(s!=null){
+//            p.getAddress().getZip().setId(s);
+//        }
         System.out.println("going to create place");
         pF.createPlace(p);        
       
