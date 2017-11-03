@@ -16,8 +16,7 @@
     function save(e) {
       var input = document.querySelector('input[type="file"]');
       var data = new FormData();
-      data.append('file', input.files[0]);
-      data.append('place', "{ 
+      var place = { 
        "title":"Huset",
        "address": {
            "street": "bip",
@@ -29,7 +28,9 @@
            "stars": 5,
            "amount": 2
        }
-   }");
+   }
+      data.append('file', input.files[0]);
+      data.append('place', JSON.stringify(place) );
       fetch('api/registerPlace/file', { 
         method: 'POST',
         body: data
