@@ -1,18 +1,18 @@
 import fetchHelper, { errorChecker } from "./fetchHelpers"
 const URL = require("../../../package.json").serverURL;
 
-class HouseStore {
+class HouseFacade {
     constructor() {
         this._data = "";
         this._errorMessage = "";
     }
 
-    getData = (cb) => {
+    submitData = (cb) => {
         this._errorMessage = "";
         this._messageFromServer = "";
         let resFromFirstPromise = null;  //Pass on response the "second" promise so we can read errors from server
-        const options = fetchHelper.makeOptions("GET", true);
-        fetch(URL + "api/house", options)
+        const options = fetchHelper.makeOptions("POST", true);
+        fetch(URL + "api/registerPlace/file", options)
             .then((res) => {
                 resFromFirstPromise = res;
                 return res.json();
@@ -29,3 +29,7 @@ class HouseStore {
             })
     }
 }
+
+let houseFacade = new HouseFacade();
+
+export default HouseFacade;
