@@ -7,13 +7,13 @@ import {
     NavigationActions
 } from 'react-navigation';
 import HomeScreen from '../screen/HomeScreen';
-import ProfileScreen from '../screen/ProfileScreen';
+import DetailScreen from '../screen/DetailScreen';
 import AddPlaceScreen from '../screen/AddPlaceScreen';
 
 
 const Navigator = StackNavigator({
     Home: {screen: HomeScreen},
-    Profile: { screen: ProfileScreen },
+    Detail: { screen: DetailScreen },
     AddPlace: { screen: AddPlaceScreen }
 });
 

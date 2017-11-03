@@ -35,7 +35,7 @@ export default class HomeScreen extends React.Component {
       return (<View key={place.id} style={{ flex: 1, flexDirection: 'column', justifyContent: 'space-between', backgroundColor: "white", paddingBottom: 20 }}>
 
         <TouchableHighlight onPress={() =>
-          navigate('Profile', { data: place })
+          navigate('Detail', { data: place })
         }>
           <View style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: "white" }}>
             <Image style={{ width: Widdev, height: 200 }} source={{ uri: place.img[1].url }} />

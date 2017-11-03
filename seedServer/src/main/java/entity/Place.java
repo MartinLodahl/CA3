@@ -6,6 +6,7 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.CascadeType;
@@ -45,7 +46,7 @@ public class Place implements Serializable {
     
     
     @OneToMany(mappedBy = "place",cascade=CascadeType.PERSIST)
-    private List<Image> images;
+    private List<Image> images = new ArrayList<Image>();
 
     public Place() {
     }

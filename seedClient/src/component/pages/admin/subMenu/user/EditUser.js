@@ -16,11 +16,13 @@ class EditUser extends Component {
             <div>
                 {this.state.user ? (
                     <div>
-                        <h2>Selected user {this.state.user}</h2>
+                        <h2>Selected user '{this.state.user}'</h2>
                         <h4>Change users password</h4>
                         <input type="text" id="cPass1" placeholder="password 1" />
                         <p />
                         <input type="text" id="cPass2" placeholder="password 2" />
+
+                        <h2><b>This is not working yet, but more of a showcase</b></h2>
                     </div>
                 ) : (
                         <div>

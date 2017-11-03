@@ -23,9 +23,9 @@ public class Zip implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(length = 255,name = "_ZIP",nullable = false, unique = true)
+    @Column(length = 255,name = "_ZIP",nullable = false, unique = false)
     private String zip;
-    @Column(length = 255,name = "_CITY",nullable = false, unique = true)
+    @Column(length = 255,name = "_CITY",nullable = false, unique = false)
     private String city;
     @OneToOne(mappedBy = "zip")
     private Address address;
@@ -36,6 +36,10 @@ public class Zip implements Serializable {
     public Zip(String zip, String city) {
         this.zip = zip;
         this.city = city;
+    }
+    
+    public Zip(Long id){
+        this.id = id;
     }
 
     public String getZip() {
