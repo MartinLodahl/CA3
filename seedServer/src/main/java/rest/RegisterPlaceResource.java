@@ -9,21 +9,19 @@ import com.google.gson.Gson;
 import entity.Image;
 import java.io.File;
 import entity.Place;
+import facades.PlaceFacade;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.URISyntaxException;
-import static javax.servlet.SessionTrackingMode.URL;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DefaultValue;
-import javax.ws.rs.Produces;
-import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
@@ -53,21 +51,29 @@ public class RegisterPlaceResource {
     @Path("/file")
     @POST
     @Consumes(MediaType.MULTIPART_FORM_DATA)
-    public Response uploadFile(@DefaultValue("") @FormDataParam("user") String user,
+    public Response uploadFile(@DefaultValue("") @FormDataParam("place") String place,
             @FormDataParam("file") InputStream file,
             @FormDataParam("file") FormDataContentDisposition fileDisposition) throws IOException {
-
-        System.out.println("Just to show how to send additonal data: " + user);
+        System.out.println("Just to show how to send additonal data: " + place);
+        Place p = new Gson().fromJson(place, Place.class);
+        System.out.println("Just to show how to send additonal data: " + p.toString());
         String fileName = fileDisposition.getFileName();
-        saveFile(file, fileName);
+        String location = FILE_LOCATION + fileName;
+        Image img = new Image(location);
+        p.getImages().add(img);
+        saveFile(file, location);
+        
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu_development");
+        PlaceFacade pF = new PlaceFacade(emf);
+        System.out.println("going to create place");
+        pF.createPlace(p);        
       
         String status = "{\"status\":\"uploaded\"}";
         return Response.ok(status).build();
     }
 
     private void saveFile(InputStream is, String fileLocation) throws IOException {
-        String location = FILE_LOCATION + fileLocation;
-        try (OutputStream os = new FileOutputStream(new File(location))) {
+        try (OutputStream os = new FileOutputStream(new File(fileLocation))) {
             byte[] buffer = new byte[256];
             int bytes = 0;
             while ((bytes = is.read(buffer)) != -1) {
