@@ -8,6 +8,14 @@ export default class ProfileScreen extends React.Component {
     }
     static navigationOptions = {
       title: 'Place detail',
+      headerTitleStyle: {
+        /* this only styles the title/text (font, color etc.)  */
+        color : '#000000',
+        marginTop: 20,
+        paddingTop:30,
+        marginBottom:20,
+        textAlign: 'center'
+       }
     };
     
     render() {

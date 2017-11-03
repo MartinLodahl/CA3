@@ -6,8 +6,8 @@ import HomeScreen from '../screen/HomeScreen';
 import ProfileScreen from '../screen/ProfileScreen';
 
 const Navigator = StackNavigator({
-  Home: {screen: HomeScreen },
-  Profile: {screen: ProfileScreen}
+  Home: {screen: HomeScreen},
+  Profile: {screen: ProfileScreen},
 });
 
 
