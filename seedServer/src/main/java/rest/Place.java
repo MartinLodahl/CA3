@@ -47,12 +47,11 @@ public class Place {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String getAllPlaceses() {
+        System.out.println("hej");
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu_development");
         PlaceFacade pF = new PlaceFacade(emf);
         //TODO return proper representation object
-        try{
-            System.out.println("s"+pF.getAllPlaceses().get(0).getImages().get(0));
-            
+        try{            
         return new Gson().toJson(pF.getAllPlaceses());
         }catch(Exception e){
             return "could not fetch places";
