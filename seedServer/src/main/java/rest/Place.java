@@ -6,6 +6,8 @@
 package rest;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import entity.Address;
 import facades.PlaceFacade;
 import javax.annotation.security.RolesAllowed;
@@ -62,7 +64,7 @@ public class Place {
      * PUT method for updating or creating an instance of GenericResource
      * @param content representation for the resource
      */
-    //@RolesAllowed("All")
+    @RolesAllowed("User")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public void addPlace(String content) {
@@ -70,5 +72,21 @@ public class Place {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu_development");
         PlaceFacade pF = new PlaceFacade(emf);
         pF.createPlace(p);
+    }
+    
+     
+    @POST
+    @Path("/rate")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void ratePlace(String content) {
+//        rate:placeId; Skal hives ud af Json
+        JsonObject jo = new Gson().fromJson(content, JsonObject.class);
+        JsonElement ratingJE = jo.get("rate");
+        int ratingLong = ratingJE.getAsInt();
+        JsonElement placeIdJE = jo.get("placeId");
+        long placeIdLong = placeIdJE.getAsLong();
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu_development");
+        PlaceFacade pF = new PlaceFacade(emf);
+        pF.ratePlace(ratingLong, placeIdLong);
     }
 }
