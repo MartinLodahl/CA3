@@ -5,6 +5,7 @@
  */
 package facades;
 
+import com.google.gson.Gson;
 import entity.Place;
 import entity.Role;
 import entity.User;
@@ -33,8 +34,8 @@ public class PlaceFacade {
     private EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
-    
-    
+
+ 
     public String createPlace(Place p) {
             try {  
                 EntityManager em = getEntityManager();
