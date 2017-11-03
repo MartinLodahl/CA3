@@ -36,7 +36,7 @@ import org.glassfish.jersey.media.multipart.FormDataParam;
 @Path("registerPlace")
 public class RegisterPlaceResource {
 
-    public static final String FILE_LOCATION = "C:\\Users\\MartinLodahl\\Documents\\NetBeansProjects\\3rd semester\\React - Seed\\seedServer\\image\\";
+    public static final String FILE_LOCATION = "C:\\img\\";
     
 
     @Context

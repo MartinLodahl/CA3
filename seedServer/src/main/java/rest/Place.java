@@ -43,6 +43,7 @@ public class Place {
      * Retrieves representation of an instance of rest.GenericResource
      * @return an instance of java.lang.String
      */
+    @Path("/all")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String getAllPlaceses() {
