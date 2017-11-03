@@ -71,15 +71,15 @@ public class Gpslocation implements Serializable {
         this.id = id;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.id);
-        hash = 53 * hash + (int) (Double.doubleToLongBits(this.latitude) ^ (Double.doubleToLongBits(this.latitude) >>> 32));
-        hash = 53 * hash + (int) (Double.doubleToLongBits(this.longitude) ^ (Double.doubleToLongBits(this.longitude) >>> 32));
-        hash = 53 * hash + Objects.hashCode(this.place);
-        return hash;
-    }
+//    @Override Causing stack overflow
+//    public int hashCode() {
+//        int hash = 7;
+//        hash = 53 * hash + Objects.hashCode(this.id);
+//        hash = 53 * hash + (int) (Double.doubleToLongBits(this.latitude) ^ (Double.doubleToLongBits(this.latitude) >>> 32));
+//        hash = 53 * hash + (int) (Double.doubleToLongBits(this.longitude) ^ (Double.doubleToLongBits(this.longitude) >>> 32));
+//        hash = 53 * hash + Objects.hashCode(this.place);
+//        return hash;
+//    }
 
     @Override
     public boolean equals(Object obj) {

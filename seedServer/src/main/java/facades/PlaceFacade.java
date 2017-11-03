@@ -7,6 +7,7 @@ package facades;
 
 import com.google.gson.Gson;
 import entity.Place;
+import entity.Rating;
 import entity.Role;
 import entity.User;
 import java.util.ArrayList;
@@ -70,20 +71,50 @@ public class PlaceFacade {
 
     public Long doZipExist(String zip) {
         EntityManager em = getEntityManager();
-     
-        
+
         try {
 //                query="SELECT c FROM Customer c WHERE c.name LIKE :custName"
 
             Query query = em.createQuery("SELECT z.id FROM Zip z where z.zip =:zip");
             query.setParameter("zip", zip);
             List<Long> tempList = query.getResultList();
-            if (tempList.size()==1){
+
+
+            if (tempList.size() == 1) {
                 Long s = tempList.get(0);
-                System.out.println("return s: "+ s);
+                System.out.println("return s: " + s);
+
                 return s;
             }
             return null;
+        } finally {
+
+            em.close();
+        }
+    }
+
+    public void ratePlace(int rate, Long id) {
+        EntityManager em = getEntityManager();
+        List<Place> tempList;
+        try {
+            Query query = em.createQuery("SELECT e FROM SEED_PLACE e where e.id =:id");
+            query.setParameter("id", id);
+            tempList = query.getResultList();
+            Rating rating = tempList.get(0).getRating();
+            int amount = rating.getAmount();
+            double star = rating.getStars();
+            System.out.println(rating.getId());
+            double newStars = ((amount*star)+rate)/(amount+1);
+            rating.setAmount(amount+1);
+            rating.setStars(newStars);
+            
+            em.getTransaction().begin();
+            System.out.println("we merge now");
+            em.merge(rating);
+            em.getTransaction().commit();
+                        
+        } catch (Exception e) {
+            System.out.println("Rating error");
         } finally {
             em.close();
         }

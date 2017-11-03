@@ -43,13 +43,13 @@ public class Address implements Serializable {
         this.zip = zip;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 53 * hash + Objects.hashCode(this.street);
-        hash = 53 * hash + Objects.hashCode(this.zip);
-        return hash;
-    }
+//    @Override Causing stack overflow
+//    public int hashCode() {
+//        int hash = 3;
+//        hash = 53 * hash + Objects.hashCode(this.street);
+//        hash = 53 * hash + Objects.hashCode(this.zip);
+//        return hash;
+//    }
 
     @Override
     public boolean equals(Object obj) {

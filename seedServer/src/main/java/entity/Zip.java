@@ -66,14 +66,14 @@ public class Zip implements Serializable {
         this.id = id;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 61 * hash + Objects.hashCode(this.id);
-        hash = 61 * hash + Objects.hashCode(this.zip);
-        hash = 61 * hash + Objects.hashCode(this.city);
-        return hash;
-    }
+//    @Override Causing stack overflow
+//    public int hashCode() {
+//        int hash = 5;
+//        hash = 61 * hash + Objects.hashCode(this.id);
+//        hash = 61 * hash + Objects.hashCode(this.zip);
+//        hash = 61 * hash + Objects.hashCode(this.city);
+//        return hash;
+//    }
 
     @Override
     public boolean equals(Object obj) {

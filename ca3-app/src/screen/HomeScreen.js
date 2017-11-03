@@ -67,7 +67,9 @@ export default class HomeScreen extends React.Component {
           navigate('Detail', { data: place })
         }>
           <View style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: "white" }}>
+
             <Image style={{ width: Widdev, height: 200 }} source={{ uri: place.images[0].url }} />
+
           </View>
         </TouchableHighlight>
         <Text style={{ paddingTop: 5, fontWeight: 'bold' }}>{place.title}</Text>
@@ -82,7 +84,6 @@ export default class HomeScreen extends React.Component {
       <ScrollView>
         {doubles}
       </ScrollView>
-
     );
   }
 }

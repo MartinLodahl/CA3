@@ -113,17 +113,17 @@ public class Place implements Serializable {
         this.description = description;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 67 * hash + Objects.hashCode(this.id);
-        hash = 67 * hash + Objects.hashCode(this.rating);
-        hash = 67 * hash + Objects.hashCode(this.gps);
-        hash = 67 * hash + Objects.hashCode(this.description);
-        hash = 67 * hash + Objects.hashCode(this.address);
-        hash = 67 * hash + Objects.hashCode(this.images);
-        return hash;
-    }
+//    @Override Causing stack overflow
+//    public int hashCode() {
+//        int hash = 5;
+//        hash = 67 * hash + Objects.hashCode(this.id);
+//        hash = 67 * hash + Objects.hashCode(this.rating);
+//        hash = 67 * hash + Objects.hashCode(this.gps);
+//        hash = 67 * hash + Objects.hashCode(this.description);
+//        hash = 67 * hash + Objects.hashCode(this.address);
+//        hash = 67 * hash + Objects.hashCode(this.images);
+//        return hash;
+//    }
 
     @Override
     public boolean equals(Object obj) {

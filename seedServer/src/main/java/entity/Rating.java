@@ -36,12 +36,12 @@ public class Rating implements Serializable {
         this.id = id;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
+//    @Override  Causing stack overflow
+//    public int hashCode() {
+//        int hash = 0;
+//        hash += (id != null ? id.hashCode() : 0);
+//        return hash;
+//    }
 
     @Override
     public boolean equals(Object object) {
@@ -56,6 +56,24 @@ public class Rating implements Serializable {
         return true;
     }
 
+    public double getStars() {
+        return stars;
+    }
+
+    public void setStars(double stars) {
+        this.stars = stars;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+    
+    
+    
     @Override
     public String toString() {
         return "Rating{" + "place=" + place + ", id=" + id + ", stars=" + stars + ", amount=" + amount + '}';
