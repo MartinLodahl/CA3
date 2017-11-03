@@ -7,11 +7,11 @@ class HouseFacade {
         this._errorMessage = "";
     }
 
-    submitData = (cb) => {
+    getData = (cb) => {
         this._errorMessage = "";
         this._messageFromServer = "";
         let resFromFirstPromise = null;  //Pass on response the "second" promise so we can read errors from server
-        const options = fetchHelper.makeOptions("POST", true);
+        const options = fetchHelper.makeOptions("GET", true);
         fetch(URL + "api/registerPlace/file", options)
             .then((res) => {
                 resFromFirstPromise = res;
