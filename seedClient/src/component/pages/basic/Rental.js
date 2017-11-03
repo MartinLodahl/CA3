@@ -27,6 +27,7 @@ export default class Rental extends Component {
                                 return <HouseDetails {...props} house={house} />
                             }}
                         />
+                        <Route exact path='/rental/' component={HouseDetails} />
                     </Switch>
                 </div>
             </div>

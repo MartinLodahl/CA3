@@ -1,21 +1,13 @@
 package rest;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import facades.UserFacade;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import javax.annotation.security.RolesAllowed;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import net.minidev.json.JSONArray;
 import security.IUser;
 import security.IUserFacade;
 import security.UserFacadeFactory;
