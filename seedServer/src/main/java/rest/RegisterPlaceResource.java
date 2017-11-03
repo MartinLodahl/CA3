@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 import entity.Image;
 import java.io.File;
 import entity.Place;
+import entity.Zip;
 import facades.PlaceFacade;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -35,7 +36,7 @@ import org.glassfish.jersey.media.multipart.FormDataParam;
 @Path("registerPlace")
 public class RegisterPlaceResource {
 
-    public static final String FILE_LOCATION = "C:\\Users\\MartinLodahl\\Documents\\NetBeansProjects\\3rd semester\\React - Seed\\seedServer\\image\\";
+    public static final String FILE_LOCATION = "C:\\img\\";
     
 
     @Context
@@ -56,6 +57,7 @@ public class RegisterPlaceResource {
             @FormDataParam("file") FormDataContentDisposition fileDisposition) throws IOException {
         System.out.println("Just to show how to send additonal data: " + place);
         Place p = new Gson().fromJson(place, Place.class);
+        
         System.out.println("Just to show how to send additonal data: " + p.toString());
         String fileName = fileDisposition.getFileName();
         String location = FILE_LOCATION + fileName;
@@ -65,6 +67,11 @@ public class RegisterPlaceResource {
         
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu_development");
         PlaceFacade pF = new PlaceFacade(emf);
+//        String zip = p.getAddress().getZip().getZip();
+//        Long s = pF.doZipExist(zip);
+//        if(s!=null){
+//            p.getAddress().getZip().setId(s);
+//        }
         System.out.println("going to create place");
         pF.createPlace(p);        
       

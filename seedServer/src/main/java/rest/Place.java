@@ -43,15 +43,15 @@ public class Place {
      * Retrieves representation of an instance of rest.GenericResource
      * @return an instance of java.lang.String
      */
+    @Path("/all")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String getAllPlaceses() {
+        System.out.println("hej");
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu_development");
         PlaceFacade pF = new PlaceFacade(emf);
         //TODO return proper representation object
-        try{
-            System.out.println("s"+pF.getAllPlaceses().get(0).getImages().get(0));
-            
+        try{            
         return new Gson().toJson(pF.getAllPlaceses());
         }catch(Exception e){
             return "could not fetch places";
@@ -62,7 +62,11 @@ public class Place {
      * PUT method for updating or creating an instance of GenericResource
      * @param content representation for the resource
      */
+<<<<<<< HEAD
     
+=======
+    //@RolesAllowed("All")
+>>>>>>> 2068387e66795f47cc7b9669b31efed538884703
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public void addPlace(String content) {

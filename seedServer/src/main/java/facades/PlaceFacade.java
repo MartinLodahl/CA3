@@ -5,6 +5,7 @@
  */
 package facades;
 
+import com.google.gson.Gson;
 import entity.Place;
 import entity.Role;
 import entity.User;
@@ -23,8 +24,8 @@ import security.PasswordStorage;
  * @author pravien
  */
 public class PlaceFacade {
-    
-     EntityManagerFactory emf;
+
+    EntityManagerFactory emf;
 
     public PlaceFacade(EntityManagerFactory emf) {
         this.emf = emf;
@@ -33,38 +34,58 @@ public class PlaceFacade {
     private EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
-    
-    
+
     public String createPlace(Place p) {
-            try {  
-                EntityManager em = getEntityManager();
-                try {
-                    em.getTransaction().begin();
-                    em.persist(p);
-                    em.getTransaction().commit();
-                } finally {
-                    em.close();
-                }
-                return "added";
-            }catch(Exception e){
+        try {
+            EntityManager em = getEntityManager();
+            try {
+                em.getTransaction().begin();
+                em.persist(p);
+                em.getTransaction().commit();
+            } finally {
+                em.close();
+            }
+            return "added";
+        } catch (Exception e) {
             return "failedUnspecified";
         }
     }
-    
-    public List<Place> getAllPlaceses(){
-          EntityManager em = getEntityManager();
-          List<Place> tempList = new ArrayList();
-          try {
+
+    public List<Place> getAllPlaceses() {
+        EntityManager em = getEntityManager();
+        List<Place> tempList = new ArrayList();
+        try {
             System.out.println("before");
             Query query = em.createQuery("SELECT e FROM SEED_PLACE e");
-            tempList=query.getResultList();
-             System.out.println("templist"+tempList);
+            tempList = query.getResultList();
+            System.out.println("templist" + tempList);
             return tempList;
-        }catch(Exception e){
-              System.out.println("ERROR getAllPLACESES# could not fetch all placeses from databse");
-        }finally {
+        } catch (Exception e) {
+            System.out.println("ERROR getAllPLACESES# could not fetch all placeses from databse");
+        } finally {
             em.close();
         }
-          return null;
+        return null;
+    }
+
+    public Long doZipExist(String zip) {
+        EntityManager em = getEntityManager();
+     
+        
+        try {
+//                query="SELECT c FROM Customer c WHERE c.name LIKE :custName"
+
+            Query query = em.createQuery("SELECT z.id FROM Zip z where z.zip =:zip");
+            query.setParameter("zip", zip);
+            List<Long> tempList = query.getResultList();
+            if (tempList.size()==1){
+                Long s = tempList.get(0);
+                System.out.println("return s: "+ s);
+                return s;
+            }
+            return null;
+        } finally {
+            em.close();
+        }
     }
 }

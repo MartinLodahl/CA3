@@ -31,8 +31,8 @@ export default class ProfileScreen extends React.Component {
                 </View>
                 <Text style={{textAlign: 'center'}}>{"Description: "+place.description}</Text>
                 <Text style={{textAlign: 'center'}}>{"Street: "+place.address.street}</Text>
-                <Text style={{textAlign: 'center'}}>{"Zip: "+place.address.zip}</Text>
-                <Text style={{textAlign: 'center'}}>{"City: "+place.address.city}</Text>
+                <Text style={{textAlign: 'center'}}>{"Zip: "+place.address.zip.zip}</Text>
+                <Text style={{textAlign: 'center'}}>{"City: "+place.address.zip.city}</Text>
       </View>
       </ScrollView>
       );
