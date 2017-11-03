@@ -56,10 +56,12 @@ public class RegisterPlaceResource {
             @FormDataParam("file") FormDataContentDisposition fileDisposition) throws IOException {
         System.out.println("Just to show how to send additonal data: " + place);
         Place p = new Gson().fromJson(place, Place.class);
+//        p.getGps().setPlace(p);
         System.out.println("Just to show how to send additonal data: " + p.toString());
         String fileName = fileDisposition.getFileName();
         String location = FILE_LOCATION + fileName;
         Image img = new Image(location);
+//        img.setPlace(p);
         p.getImages().add(img);
         saveFile(file, location);
         

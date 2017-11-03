@@ -62,7 +62,7 @@ public class Place {
      * PUT method for updating or creating an instance of GenericResource
      * @param content representation for the resource
      */
-    @RolesAllowed("All")
+    //@RolesAllowed("All")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public void addPlace(String content) {
