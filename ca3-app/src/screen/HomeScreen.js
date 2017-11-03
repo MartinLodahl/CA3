@@ -1,11 +1,21 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, ScrollView, Image, Dimensions,TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, Button, ScrollView, Image, Dimensions,TouchableHighlight,StackNavigator,titleStyle,tintColor } from 'react-native';
 import HuseMock from '../mock/HuseMock';
 import StarRating from 'react-native-star-rating';
 
 export default class HomeScreen extends React.Component {
     static navigationOptions = {
       title: 'Rentel',
+      
+        headerTitleStyle: {
+         /* this only styles the title/text (font, color etc.)  */
+         color : '#000000',
+         marginTop: 20,
+         paddingTop:30,
+         marginBottom:30,
+         textAlign: 'center'
+        }
+      
     };
 
     
