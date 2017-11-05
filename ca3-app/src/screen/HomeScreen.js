@@ -59,7 +59,9 @@ export default class HomeScreen extends React.Component {
 
   render() {
     const { navigate } = this.props.navigation;
-    const doubles = this.state.data.map((place) => {
+    
+    //const doubles = this.state.data.map((place) => {
+      const doubles = HuseMock.data.map((place) => {
       const Widdev = Dimensions.get('window').width;
       return (<View key={place.id} style={{ flex: 1, flexDirection: 'column', justifyContent: 'space-between', backgroundColor: "white", paddingBottom: 20 }}>
 
