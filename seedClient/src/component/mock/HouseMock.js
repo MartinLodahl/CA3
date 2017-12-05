@@ -36,10 +36,10 @@ const data = [
     }
 ];
 
-class housesMock {
+class houseMock {
     constructor() {
         this.data = data;
     }
 }
 
-export default new housesMock();
+export default new houseMock();

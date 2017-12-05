@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import Houses from "../showcase/Houses";
 import HouseDetails from "../showcase/HouseDetails";
-import housesMock from "../../mock/housesMock";
+import HouseMock from "../../mock/HouseMock";
 import HouseFacade from "../../facades/houseFacade";
 import { Switch, Route } from "react-router-dom";
 
 export default class Rental extends Component {
     constructor() {
         super();
-        this.state = { houses: HouseFacade.data, currentHouse: null };
+        this.state = { houses: HouseMock.data, currentHouse: null };
     }
 
 
