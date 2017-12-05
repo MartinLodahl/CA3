@@ -6,6 +6,10 @@ export default class ProfileScreen extends React.Component {
     super();
     this.state={switch:false}
     }
+
+    
+
+    
     static navigationOptions = {
       title: 'Place detail',
       headerTitleStyle: {

@@ -12,12 +12,13 @@ import {
 import HuseMock from '../mock/HuseMock';
 import StarRating from 'react-native-star-rating';
 import placeFacade from "../fetch/PlaceFacade";
+import locationFacade from "../fetch/LocationFacade";
 
 export default class HomeScreen extends React.Component {
 
     constructor (){
       super();
-      this.state = { data: [], err: "" }
+      this.state = { data: [], err: ""}
     }
     static navigationOptions = {
       title: 'Rentel',
@@ -38,7 +39,14 @@ export default class HomeScreen extends React.Component {
       This will fetch data each time you navigate to this route
       If only required once, add "logic" to determine when data should be "refetched"
       */
-      placeFacade.getPlaceses((e, data) => {
+     /* placeFacade.getPlaceses((e, data) => {
+        if (e) {
+          return this.setState({ err: e.err })
+        }
+        this.setState({ err: "s", data });
+      });*/
+
+      locationFacade.getLocations((e, data) => {
         if (e) {
           return this.setState({ err: e.err })
         }
@@ -61,7 +69,7 @@ export default class HomeScreen extends React.Component {
     const { navigate } = this.props.navigation;
     
     //const doubles = this.state.data.map((place) => {
-      const doubles = HuseMock.data.map((place) => {
+      const doubles = this.state.data.map((place) => {
       const Widdev = Dimensions.get('window').width;
       return (<View key={place.id} style={{ flex: 1, flexDirection: 'column', justifyContent: 'space-between', backgroundColor: "white", paddingBottom: 20 }}>
 
@@ -69,8 +77,8 @@ export default class HomeScreen extends React.Component {
           navigate('Detail', { data: place })
         }>
           <View style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: "white" }}>
-
-            <Image style={{ width: Widdev, height: 200 }} source={{ uri: place.images[0].url }} />
+            {img(place)}
+           {/* <Image style={{ width: Widdev, height: 200 }} source={{ uri: place.images[0].url }} />*/}
 
           </View>
         </TouchableHighlight>
@@ -88,6 +96,16 @@ export default class HomeScreen extends React.Component {
       </ScrollView>
     );
   }
+}
+
+const img = (location) => {
+  const defaultImg = URL + 'api/photo/small/default.jpg';
+  let $image = null;
+  $image = (<img src={defaultImg} width='80' height='80' alt='nej' />);
+  if (location.img.name) {
+      $image = (<img src={URL + 'api/photo/small/' + location.img.name} width='80' height='80' alt='location' />);
+  }
+  return $image;
 }
 
 const styles = StyleSheet.create({
