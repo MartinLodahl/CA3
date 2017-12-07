@@ -46,12 +46,22 @@ export default class HomeScreen extends React.Component {
         this.setState({ err: "s", data });
       });*/
 
-      locationFacade.getLocations((e, data) => {
+      fetch('http://localhost:8084/seedX/api/location').then(function (res) {
+        return res.json();
+    }).then((res) => {
+        this.setState({
+            data: res
+        });
+    }).catch(function (res) {
+        console.log('catch: ' + res);
+    })
+
+      /* locationFacade.getLocations((e, data) => {
         if (e) {
           return this.setState({ err: e.err })
         }
         this.setState({ err: "s", data });
-      });
+      }); */
     }
 
   static navigationOptions = ({ navigation }) => {
@@ -68,8 +78,9 @@ export default class HomeScreen extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
     
-    //const doubles = this.state.data.map((place) => {
-      const doubles = this.state.data.map((place) => {
+    const doubles = this.state.data.map((place) => {
+      //const doubles = HuseMock.data.map((place) => {
+        console.log(place);
       const Widdev = Dimensions.get('window').width;
       return (<View key={place.id} style={{ flex: 1, flexDirection: 'column', justifyContent: 'space-between', backgroundColor: "white", paddingBottom: 20 }}>
 
@@ -77,7 +88,8 @@ export default class HomeScreen extends React.Component {
           navigate('Detail', { data: place })
         }>
           <View style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: "white" }}>
-            {img(place)}
+            {/* img(place) */}
+            {<Image source={'http://localhost:8084/seedX/api/photo/small/default.jpg'}/>}
            {/* <Image style={{ width: Widdev, height: 200 }} source={{ uri: place.images[0].url }} />*/}
 
           </View>
@@ -99,11 +111,11 @@ export default class HomeScreen extends React.Component {
 }
 
 const img = (location) => {
-  const defaultImg = URL + 'api/photo/small/default.jpg';
+  const defaultImg = 'http://localhost:8084/seedX/api/photo/small/default.jpg';
   let $image = null;
-  $image = (<img src={defaultImg} width='80' height='80' alt='nej' />);
+  $image = (<Image  source={defaultImg} width='80' height='80' alt='nej' />);
   if (location.img.name) {
-      $image = (<img src={URL + 'api/photo/small/' + location.img.name} width='80' height='80' alt='location' />);
+      $image = (<Image   source={'http://localhost:8084/seedX/api/photo/small/' + location.img.name} width='80' height='80' alt='location' />);
   }
   return $image;
 }
